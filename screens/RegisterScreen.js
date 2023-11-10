@@ -38,8 +38,8 @@ const RegisterScreen = () => {
           "You have been registered Successfully"
         );
         setName("");
-        setPassword("");
         setEmail("");
+        setPassword("");
       })
       .catch((error) => {
         Alert.alert(
@@ -51,12 +51,7 @@ const RegisterScreen = () => {
   };
   return (
     <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-        alignItems: "center",
-        marginTop: 50,
-      }}
+      style={{ flex: 1, backgroundColor: "white", alignItems: "center",marginTop:50  }}
     >
       <View>
         <Image
@@ -66,6 +61,7 @@ const RegisterScreen = () => {
           }}
         />
       </View>
+
       <KeyboardAvoidingView>
         <View style={{ alignItems: "center" }}>
           <Text
@@ -98,7 +94,6 @@ const RegisterScreen = () => {
               color="gray"
               style={{ marginLeft: 8 }}
             />
-
             <TextInput
               value={name}
               onChangeText={(text) => setName(text)}
@@ -108,7 +103,7 @@ const RegisterScreen = () => {
                 width: 300,
                 fontSize: name ? 16 : 16,
               }}
-              placeholder="enter your Name"
+              placeholder="enter your name"
             />
           </View>
 
@@ -137,12 +132,13 @@ const RegisterScreen = () => {
                 color: "gray",
                 marginVertical: 10,
                 width: 300,
-                fontSize: email ? 16 : 16,
+                fontSize: password ? 16 : 16,
               }}
               placeholder="enter your Email"
             />
           </View>
         </View>
+
         <View>
           <View
             style={{
@@ -161,6 +157,7 @@ const RegisterScreen = () => {
               color="gray"
               style={{ marginLeft: 8 }}
             />
+
             <TextInput
               value={password}
               onChangeText={(text) => setPassword(text)}
@@ -169,12 +166,13 @@ const RegisterScreen = () => {
                 color: "gray",
                 marginVertical: 10,
                 width: 300,
-                fontSize: password ? 16 : 16,
+                fontSize: email ? 16 : 16,
               }}
               placeholder="enter your Password"
             />
           </View>
         </View>
+
         <View
           style={{
             marginTop: 12,
@@ -220,7 +218,7 @@ const RegisterScreen = () => {
           style={{ marginTop: 15 }}
         >
           <Text style={{ textAlign: "center", color: "gray", fontSize: 16 }}>
-            Already have account? Sign In
+            Already have an account? Sign In
           </Text>
         </Pressable>
       </KeyboardAvoidingView>
@@ -231,3 +229,4 @@ const RegisterScreen = () => {
 export default RegisterScreen;
 
 const styles = StyleSheet.create({});
+

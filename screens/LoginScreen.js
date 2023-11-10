@@ -7,20 +7,18 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Pressable,
-  Alert,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState,useEffect } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
-
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
@@ -30,17 +28,17 @@ const LoginScreen = () => {
           navigation.replace("Main");
         }
       } catch (err) {
-        console.log("error message, error");
+        console.log("error message", err);
       }
     };
     checkLoginStatus();
   }, []);
-
   const handleLogin = () => {
     const user = {
       email: email,
       password: password,
     };
+
     axios
       .post("http://192.168.100.7:8000/login", user)
       .then((response) => {
@@ -56,12 +54,7 @@ const LoginScreen = () => {
   };
   return (
     <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-        alignItems: "center",
-        marginTop: 50,
-      }}
+      style={{ flex: 1, backgroundColor: "white", alignItems: "center",marginTop:50 }}
     >
       <View>
         <Image
@@ -71,6 +64,7 @@ const LoginScreen = () => {
           }}
         />
       </View>
+
       <KeyboardAvoidingView>
         <View style={{ alignItems: "center" }}>
           <Text
@@ -103,6 +97,7 @@ const LoginScreen = () => {
               size={24}
               color="gray"
             />
+
             <TextInput
               value={email}
               onChangeText={(text) => setEmail(text)}
@@ -116,6 +111,7 @@ const LoginScreen = () => {
             />
           </View>
         </View>
+
         <View style={{ marginTop: 10 }}>
           <View
             style={{
@@ -149,6 +145,7 @@ const LoginScreen = () => {
             />
           </View>
         </View>
+
         <View
           style={{
             marginTop: 12,
